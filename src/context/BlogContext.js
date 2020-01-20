@@ -35,5 +35,5 @@ export const {Context, Provider} =
     createDataContext(
         blogReducer, 
         { addBlogPost, deleteBlogPost }, 
-        []
+        [{title: 'TEST', content: 'Test content', id: 1}]
     );
