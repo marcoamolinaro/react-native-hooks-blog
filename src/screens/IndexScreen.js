@@ -3,30 +3,33 @@ import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'reac
 import { Context } from '../context/BlogContext';
 import { FontAwesome } from '@expo/vector-icons';
 
-const IndexScreen = () => {
-
+const IndexScreen = ({navigation}) => {
+    
     const {state, addBlogPost, deleteBlogPost} = useContext(Context);
 
     return (
-        <View>
-            <Button title="Add Post" onPress={addBlogPost} />
-            <FlatList 
-                data={state}
-                keyExtractor={(blogPost) => blogPost.title}
-                renderItem={({ item }) => {
-                    return (
-                        <View style={styles.row}>
-                            <Text style={styles.title}>
-                                {item.title} - {item.id}
-                            </Text>
-                            <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
-                                <FontAwesome style={styles.icon} name='trash'/>
-                            </TouchableOpacity>
-                        </View>
-                    );
-                }}
-            />
-        </View>
+            <View>
+                <Button title="Add Post" onPress={addBlogPost} />
+                <FlatList 
+                    data={state}
+                    keyExtractor={(blogPost) => blogPost.title}
+                    renderItem={({ item }) => {
+                        return (
+                            <View style={styles.row}>
+                                <TouchableOpacity 
+                                    onPress={() => navigation.navigate('Show', { id: item.id })}>
+                                    <Text style={styles.title}>
+                                        {item.title} - {item.id}
+                                    </Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+                                    <FontAwesome style={styles.icon} name='trash'/>
+                                </TouchableOpacity>
+                            </View>
+                        );
+                    }}
+                />
+            </View>
     );
 };
 
