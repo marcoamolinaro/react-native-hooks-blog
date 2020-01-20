@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'react-native';
 import { Context } from '../context/BlogContext';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, Feather } from '@expo/vector-icons';
+
 
 const IndexScreen = ({navigation}) => {
     
@@ -31,6 +32,18 @@ const IndexScreen = ({navigation}) => {
                 />
             </View>
     );
+};
+
+IndexScreen.navigationOptions = ({navigation}) => {
+    return {
+        headerRight: (
+            <Feather 
+                onPress={() => navigation.navigate('Create')}
+                name="plus-square" 
+                size={30}
+            />
+        )
+    };
 };
 
 const styles = StyleSheet.create({
