@@ -10,9 +10,9 @@ const ShowScreen = ({navigation}) => {
     const blogPost = state.find(blogPost => blogPost.id === navigation.getParam('id'));    
 
     return (
-        <View>
-            <Text>{blogPost.title}</Text>
-            <Text>{blogPost.content}</Text>
+        <View style={styles.container}>
+            <Text style={styles.title}>{blogPost.title}</Text>
+            <Text style={styles.content} numberOfLines={20} >{blogPost.content}</Text>
         </View>
     );
 };
@@ -30,6 +30,21 @@ ShowScreen.navigationOptions = ({navigation}) => {
     };
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    title: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'red',
+        marginBottom: 10
+    },
+    container: {
+        paddingHorizontal: 15
+    }, 
+    content: {
+        borderColor: 'gray',
+        borderWidth: 1,
+        margin: 5
+    }
+});
 
 export default ShowScreen;
