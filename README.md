@@ -20,3 +20,4 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 The data will be store at https://www.npmjs.com/package/json-server
 
+Install npm install axios
