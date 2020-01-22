@@ -18,3 +18,5 @@ Our imports in the upcoming lecture will now look like this:
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
+The data will be store at https://www.npmjs.com/package/json-server
+
